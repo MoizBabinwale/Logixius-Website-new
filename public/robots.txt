@@ -1,0 +1,22 @@
+# Logixius AI - Robots.txt
+# https://logixiusai.in
+
+User-agent: *
+Allow: /
+Allow: /workshops
+Allow: /expert-sessions
+Allow: /industrial-projects
+Allow: /corporate-training
+Allow: /gallery
+Allow: /verify
+Allow: /portal/login
+Allow: /portal/apply
+Disallow: /admin/
+Disallow: /portal/dashboard
+Disallow: /api/
+
+# Sitemaps
+Sitemap: https://logixiusai.in/sitemap.xml
+
+# Crawl-delay
+Crawl-delay: 1

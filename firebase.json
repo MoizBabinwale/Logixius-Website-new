@@ -1,0 +1,54 @@
+{
+  "functions": [
+    {
+      "source": "functions",
+      "codebase": "default",
+      "runtime": "nodejs20"
+    }
+  ],
+  "hosting": {
+    "public": "public",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "rewrites": [
+      {
+        "source": "/admin/**",
+        "function": "api"
+      },
+      {
+        "source": "/portal/**",
+        "function": "api"
+      },
+      {
+        "source": "/verify",
+        "function": "api"
+      },
+      {
+        "source": "/gallery",
+        "function": "api"
+      },
+      {
+        "source": "/workshops",
+        "function": "api"
+      },
+      {
+        "source": "/expert-sessions",
+        "function": "api"
+      },
+      {
+        "source": "/industrial-projects",
+        "function": "api"
+      },
+      {
+        "source": "/corporate-training",
+        "function": "api"
+      }
+    ]
+  },
+  "storage": {
+    "rules": "storage.rules"
+  }
+}

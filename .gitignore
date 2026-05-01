@@ -2,6 +2,31 @@
 # Dependencies
 # ========================
 node_modules/
+functions/node_modules/
+
+# ========================
+# Firebase
+# ========================
+.firebase/
+firebase-debug.log
+firebase-debug.*.log
+firestore-debug.log
+ui-debug.log
+database-debug.log
+pubsub-debug.log
+dataconnect-debug.log
+.firebaserc.bak
+firebase-export-*/
+dataconnect-generated/
+functions/.env
+functions/.env.local
+functions/.secret.local
+
+# ========================
+# Service Account Keys (NEVER commit these)
+# ========================
+*-firebase-adminsdk-*.json
+service-account-key.json
 
 # ========================
 # Environment / Secrets

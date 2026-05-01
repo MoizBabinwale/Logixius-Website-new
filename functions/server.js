@@ -103,50 +103,15 @@ function getContentType(filename) {
 
 // Gallery Page
 app.get('/gallery', async (req, res) => {
-    const galleryBase = path.join(__dirname, '..', 'public', 'assets', 'project and work');
-
-    // Structure: { 'Category Name': [ { src: '...', category: '...' }, ... ], ... }
     let groupedImages = {};
-
     try {
-        const items = await fs.promises.readdir(galleryBase, { withFileTypes: true });
-
-        // 1. Process Subdirectories (Categories)
-        for (const item of items) {
-            if (item.isDirectory()) {
-                const category = item.name;
-                const subDir = path.join(galleryBase, category);
-                try {
-                    const files = await fs.promises.readdir(subDir);
-                    const images = files.filter(f => /\.(jpg|jpeg|png|webp|gif)$/i.test(f))
-                        .map(f => ({
-                            src: `${category}/${f}`,
-                            category: category
-                        }));
-
-                    if (images.length > 0) {
-                        groupedImages[category] = images;
-                    }
-                } catch (e) {
-                    console.error(`Error reading subdir ${category}:`, e);
-                }
-            } else if (item.isFile() && /\.(jpg|jpeg|png|webp|gif)$/i.test(item.name)) {
-                // 2. Process Root Files (Uncategorized)
-                if (!groupedImages['Other Highlights']) {
-                    groupedImages['Other Highlights'] = [];
-                }
-                groupedImages['Other Highlights'].push({
-                    src: item.name,
-                    category: 'Other Highlights'
-                });
-            }
-        }
-
+        const dataPath = path.join(__dirname, 'gallery-data.json');
+        const fileContent = await fs.promises.readFile(dataPath, 'utf8');
+        groupedImages = JSON.parse(fileContent);
         res.locals.galleryGroups = groupedImages;
         res.render('gallery');
-
     } catch (err) {
-        console.error('Error scanning gallery directory: ' + err);
+        console.error('Error reading gallery data: ' + err);
         res.status(500).send('Server Error: ' + err.stack);
     }
 });

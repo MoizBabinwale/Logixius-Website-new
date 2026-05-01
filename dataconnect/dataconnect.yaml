@@ -1,0 +1,13 @@
+specVersion: "v1"
+serviceId: "farmer-app-d7a92-service"
+location: "us-east4"
+schemas:
+  - source: "./schema"
+    datasource:
+      postgresql:
+        database: "farmer-app-d7a92-database"
+        cloudSql:
+          instanceId: "farmer-app-d7a92-instance"
+          # schemaValidation: "STRICT"     # STRICT mode makes Postgres schema match Data Connect exactly.
+          # schemaValidation: "COMPATIBLE" # COMPATIBLE mode makes Postgres schema compatible with Data Connect.
+connectorDirs: ["./example"]

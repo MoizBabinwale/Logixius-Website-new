@@ -1,0 +1,11 @@
+# apphosting.yaml
+# Firebase App Hosting Configuration
+
+# Environment Variables needed at runtime
+env:
+  - variable: DATABASE_URL
+    secret: DATABASE_URL
+  - variable: SESSION_SECRET
+    secret: SESSION_SECRET
+  - variable: BLOB_READ_WRITE_TOKEN
+    secret: BLOB_READ_WRITE_TOKEN

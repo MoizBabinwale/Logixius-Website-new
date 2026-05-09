@@ -1791,6 +1791,11 @@ body.menu-open {
             <h2 class="text-center mb-4">Internship Application Form</h2>
 
             <form action="/portal/apply" method="POST">
+                <% if (locals.error) { %>
+                    <div class="alert alert-danger" style="background: #fee2e2; color: #b91c1c; padding: 1rem; border-radius: 6px; margin-bottom: 1.5rem; text-align: center; font-weight: 500; border: 1px solid #f87171;">
+                        <%= error %>
+                    </div>
+                <% } %>
                 <h4 class="section-title">Personal Details</h4>
                 <div class="row" style="display: flex; gap: 1rem; flex-wrap: wrap;">
                     <div class="col" style="flex: 1;">

@@ -31,7 +31,6 @@ service-account-key.json
 # ========================
 # Environment / Secrets
 # ========================
-.env
 .env.*
 !.env.example
 
